@@ -22,7 +22,7 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Show Dir
-      run: |
-        cd target
-        dir
+    - name: Build Docker-Image
+      run: docker build -t drdeee/triggerbot:generated
+    - name: Test Image
+      run: docker run drdeee/triggerbot:generated
